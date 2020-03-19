@@ -1,0 +1,245 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 10/10/19 9:54 PM
+Description: Watching Server
+
+java.lang.Error
+	at java.lang.Class.isAssignableFrom(Native Method)
+	at amu.a(SourceFile:2378)
+	at anb.a(SourceFile:80)
+	at oo.d(SourceFile:203)
+	at net.minecraft.server.MinecraftServer.D(SourceFile:624)
+	at nz.D(SourceFile:349)
+	at net.minecraft.server.MinecraftServer.C(SourceFile:560)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:464)
+	at java.lang.Thread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at java.lang.Class.isAssignableFrom(Native Method)
+	at amu.a(SourceFile:2378)
+	at anb.a(SourceFile:80)
+	at oo.d(SourceFile:203)
+	at net.minecraft.server.MinecraftServer.D(SourceFile:624)
+	at nz.D(SourceFile:349)
+	at net.minecraft.server.MinecraftServer.C(SourceFile:560)
+
+-- Thread Dump --
+Details:
+	Threads: "Netty Server IO #3" Id=32 BLOCKED on java.util.ArrayDeque@119bf55 owned by "Netty Server IO #2" Id=29
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1254)
+	-  blocked on java.util.ArrayDeque@119bf55
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1271)
+	at oo.a(SourceFile:1159)
+	at hv.a(SourceFile:10)
+	at pa.a(SourceFile:425)
+	at lk.a(SourceFile:126)
+	at lk$b.a(SourceFile:18)
+	at gw.a(SourceFile:135)
+	...
+
+
+"File IO Thread" Id=31 RUNNABLE
+	at java.lang.Thread.sleep(Native Method)
+	at bgx.c(SourceFile:51)
+	at bgx.run(SourceFile:30)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"threadDeathWatcher-2-1" Id=30 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at io.netty.util.ThreadDeathWatcher$Watcher.run(ThreadDeathWatcher.java:152)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Netty Server IO #2" Id=29 RUNNABLE
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1254)
+	-  locked java.util.ArrayDeque@119bf55
+	at net.minecraft.server.MinecraftServer.a(SourceFile:1271)
+	at oo.a(SourceFile:1159)
+	at hv.a(SourceFile:10)
+	at pa.a(SourceFile:860)
+	at ly.a(SourceFile:32)
+	at ly.a(SourceFile:9)
+	at gw.a(SourceFile:135)
+	...
+
+
+"Netty Server IO #1" Id=28 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@1de5ec6
+	-  locked java.util.Collections$UnmodifiableSet@1e1d425
+	-  locked sun.nio.ch.WindowsSelectorImpl@e354fd
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	...
+
+
+"Server Watchdog" Id=27 RUNNABLE
+	at sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at sun.management.ThreadImpl.dumpAllThreads(Unknown Source)
+	at oa.run(SourceFile:43)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Netty Server IO #0" Id=26 RUNNABLE (in native)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl$SubSelector.access$400(Unknown Source)
+	at sun.nio.ch.WindowsSelectorImpl.doSelect(Unknown Source)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(Unknown Source)
+	-  locked io.netty.channel.nio.SelectedSelectionKeySet@32a6a3
+	-  locked java.util.Collections$UnmodifiableSet@199e04d
+	-  locked sun.nio.ch.WindowsSelectorImpl@a24ca7
+	at sun.nio.ch.SelectorImpl.select(Unknown Source)
+	at io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:62)
+	at io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:732)
+	...
+
+
+"D3D Screen Updater" Id=25 TIMED_WAITING on java.lang.Object@ccabb2
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.Object@ccabb2
+	at sun.java2d.d3d.D3DScreenUpdateManager.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"DestroyJavaVM" Id=23 RUNNABLE
+
+
+"Server thread" Id=21 RUNNABLE
+	at java.lang.Class.isAssignableFrom(Native Method)
+	at amu.a(SourceFile:2378)
+	at anb.a(SourceFile:80)
+	at oo.d(SourceFile:203)
+	at net.minecraft.server.MinecraftServer.D(SourceFile:624)
+	at nz.D(SourceFile:349)
+	at net.minecraft.server.MinecraftServer.C(SourceFile:560)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:464)
+	...
+
+
+"TimerQueue" Id=19 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1891398
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1891398
+	at java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+	at java.util.concurrent.DelayQueue.take(Unknown Source)
+	at javax.swing.TimerQueue.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.locks.ReentrantLock$NonfairSync@15c08b6
+
+
+"Thread-3" Id=18 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1a6a17a
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1a6a17a
+	at java.util.concurrent.locks.LockSupport.park(Unknown Source)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(Unknown Source)
+	at java.util.concurrent.LinkedBlockingQueue.take(Unknown Source)
+	at com.mojang.util.QueueLogAppender.getNextLogEvent(QueueLogAppender.java:77)
+	at oc$4.run(SourceFile:129)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"AWT-EventQueue-0" Id=17 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@8217c7
+	at sun.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@8217c7
+	at java.util.concurrent.locks.LockSupport.park(Unknown Source)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(Unknown Source)
+	at java.awt.EventQueue.getNextEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	...
+
+
+"AWT-Windows" Id=15 RUNNABLE (in native)
+	at sun.awt.windows.WToolkit.eventLoop(Native Method)
+	at sun.awt.windows.WToolkit.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"AWT-Shutdown" Id=14 WAITING on java.lang.Object@13cbc59
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.Object@13cbc59
+	at java.lang.Object.wait(Unknown Source)
+	at sun.awt.AWTAutoShutdown.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Java2D Disposer" Id=13 WAITING on java.lang.ref.ReferenceQueue$Lock@686475
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@686475
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at sun.java2d.Disposer.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+
+"Server Infinisleeper" Id=12 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at nz$1.run(SourceFile:84)
+
+
+"Snooper Timer" Id=11 TIMED_WAITING on java.util.TaskQueue@11ae33
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@11ae33
+	at java.util.TimerThread.mainLoop(Unknown Source)
+	at java.util.TimerThread.run(Unknown Source)
+
+
+"Attach Listener" Id=5 RUNNABLE
+
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+
+"Finalizer" Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@69b119
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@69b119
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.ReferenceQueue.remove(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+
+"Reference Handler" Id=2 WAITING on java.lang.ref.Reference$Lock@a11f79
+	at java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.Reference$Lock@a11f79
+	at java.lang.Object.wait(Unknown Source)
+	at java.lang.ref.Reference.tryHandlePending(Unknown Source)
+	at java.lang.ref.Reference$ReferenceHandler.run(Unknown Source)
+
+
+
+Stacktrace:
+	at oa.run(SourceFile:59)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (x86) version 10.0
+	Java Version: 1.8.0_221, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) Client VM (mixed mode, sharing), Oracle Corporation
+	Memory: 117667800 bytes (112 MB) / 179683328 bytes (171 MB) up to 259522560 bytes (247 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	Profiler Position: N/A (disabled)
+	Player Count: 2 / 20; [oq['greg'/706, l='world', x=147.55, y=76.00, z=424.33], oq['kitten'/3106, l='world', x=228.51, y=71.00, z=417.65]]
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
